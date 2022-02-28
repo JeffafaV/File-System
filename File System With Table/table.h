@@ -1,5 +1,5 @@
-#ifndef TABLE_H
-#define TABLE_H
+#ifndef table_h
+#define table_h
 
 #include "filesys.h"
 #include "shell.h"
@@ -20,5 +20,3 @@ private :
 };
 
 #endif /* table_h */
-
-
