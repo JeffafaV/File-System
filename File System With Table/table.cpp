@@ -5,27 +5,22 @@
 #include <sstream>
 #include <fstream>
 
-Table::Table(string diskname,int numberOfBlocks,int blockSize, string flatfile, string indexfile):Shell(diskname, nu>
-    //int b = newFile(flatfile);
-    //int c = newFile(indexfile);
+Table::Table(string diskname,int numberOfBlocks,int blockSize, string flatfile, string indexfile):Shell(diskname, numberOfBlocks, blockSize)
+{
     this->flatfile = flatfile;
     this->indexfile = indexfile;
-   // if (b == 0 || c == 0)
-    //{
-        //cout << "could not create index or flat" << endl;
-    //}
+	
     count = 0;
 }
-int Table::Build_Table(string input_file) {
-        // make it so that it doesn't build every freakin time
+int Table::Build_Table(string input_file)
+{
     ifstream infile;
     infile.open(input_file.c_str());
     int b = newFile(flatfile);
     int c = newFile(indexfile);
-    //this->flatfile = flatfile;
-    //this->indexfile = indexfile;
-        string record;
-        getline(infile, record);
+	string record;
+	getline(infile, record);
+	
     if (b == 0 || c == 0)
     {
         while (infile.good())
@@ -37,14 +32,12 @@ int Table::Build_Table(string input_file) {
         return 1;
     }
 
-    //string record;
-    //int count = 0;
-    //getline(infile, record);
     vector<string> key;
     vector<string> iBlock;
     ostringstream outstream;
 
-    while(infile.good()) {
+    while(infile.good())
+	{
         // Process Record
         string primaryKey;
         primaryKey = record.substr(0, 5);
@@ -53,26 +46,23 @@ int Table::Build_Table(string input_file) {
         outstream << primaryKey << " " << blockID << " ";
         count++;
         cout << count;
-            // Time to addBlock
-            //vector<string> blocks2 = block(outstream.str(), getBlockSize());
-            //addBlock(indexfile, blocks2[0]);
-            //count = 0;
-            //outstream.str("");
         getline(infile, record);
-    } // while
+    }
 
-        cout << outstream.str();
-        vector<string> blocks2 = block(outstream.str(), getBlockSize());
-        for (int i = 0; i < blocks2.size(); i++)
-        {
-                addBlock(indexfile, blocks2[i]);
-        }
+	cout << outstream.str();
+	vector<string> blocks2 = block(outstream.str(), getBlockSize());
+	for (int i = 0; i < blocks2.size(); i++)
+	{
+		addBlock(indexfile, blocks2[i]);
+	}
     return 1;
 }
 
-int Table::Search(string value) {
+int Table::Search(string value)
+{
     string date = value;
-    if(value == "") {
+    if(value == "")
+	{
         cout << "What date would you like to search for: ";
         cin >> date;
     }
@@ -86,27 +76,27 @@ int Table::Search(string value) {
     return 1;
 }
 
-int Table::IndexSearch(string value) {
-
+int Table::IndexSearch(string value)
+{
    istringstream instream;
    string k;
    int b;
    string bigBuffer;
     int blockID = getFirstBlock(indexfile);
-    // TODO: Check is blockID is -1
-    while (blockID != 0) {
-        string buffer;//, k;
-        //int b;
+	
+    while (blockID != 0)
+	{
+        string buffer;
         readBlock(indexfile, blockID, buffer);
         bigBuffer += buffer;
         blockID = nextBlock(indexfile, blockID);
     }
-        instream.str(bigBuffer);
-        for (int i = 0; i <= count; i++) {
-            instream >> k >> b;
-            if (k == value) return b;
-        }
-        //blockID = nextBlock(indexfile, blockID);
-    // while
+	instream.str(bigBuffer);
+	for (int i = 0; i <= count; i++)
+	{
+		instream >> k >> b;
+		if (k == value) return b;
+	}
+	
     return 0;
 }

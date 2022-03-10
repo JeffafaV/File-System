@@ -9,7 +9,7 @@ using namespace std;
 
 class Filesys: public Sdisk
 {
-public :
+public:
     Filesys(string disk, int numberOfBlocks, int blockSize);
     int fsClose();
     int newFile(string file);
@@ -21,16 +21,14 @@ public :
     int writeBlock(string file, int blockNumber, string buffer);
     int nextBlock(string file, int blockNumber);
     vector<string> ls();
-private :
+private:
     int fsSynch();
-    int rootSize;               // maximum number of entries in ROOT
-    int fatSize;                // number of blocks occupied by FAT
-    vector<string> filename;    // filenames in ROOT
-    vector<int> firstBlock;     // firstblocks in ROOT
-    vector<int> fat;            // FAT
+    int rootSize; // maximum number of entries in ROOT
+    int fatSize; // number of blocks occupied by FAT
+    vector<string> filename; // filenames in ROOT
+    vector<int> firstBlock; // firstblocks in ROOT
+    vector<int> fat; // FAT
     bool checkBlock(string file, int blockNumber);
 };
 
-#endif /* filesys_h */
-
-
+#endif

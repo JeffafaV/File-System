@@ -5,8 +5,9 @@
 
 using namespace std;
 
-class Sdisk {
-public :
+class Sdisk
+{
+public:
     Sdisk(string diskName, int numberOfBlocks, int blockSize);
     int getBlock(int blockNumber, string& buffer);
     int putBlock(int blockNumber, string buffer);
@@ -14,11 +15,10 @@ public :
     int getNumberOfBlocks(); // accessor function
     int getBlockSize(); // accessor function
     string getDiskName(); // accessor function
-private :
-    string diskName;        // file name of software-disk
-    int numberOfBlocks;     // number of blocks on disk
-    int blockSize;          // block size in bytes
+private:
+    string diskName; // file name of software-disk
+    int numberOfBlocks; // number of blocks on disk
+    int blockSize; // block size in bytes
 };
-
 
 #endif
