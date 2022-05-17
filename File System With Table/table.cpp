@@ -45,11 +45,11 @@ int Table::Build_Table(string input_file)
         int blockID = addBlock(flatfile, blocks[0]);
         outstream << primaryKey << " " << blockID << " ";
         count++;
-        cout << count;
+        //cout << count;
         getline(infile, record);
     }
 
-	cout << outstream.str();
+	//cout << outstream.str();
 	vector<string> blocks2 = block(outstream.str(), getBlockSize());
 	for (int i = 0; i < blocks2.size(); i++)
 	{
