@@ -15,8 +15,8 @@ int main() {
     //Sdisk sdisk = Sdisk("sdisk.txt",256,128);
     //Filesys fsys = Filesys("sdisk.txt",256,128);
     //Shell shell = Shell("sdisk.txt",256,128);
-    Table table = Table("sdisk.txt",256,128,"flatfile","indexfile");
-    table.Build_Table("data.txt");
+    Table table = Table("sdisk.txt",256,128,"flatfile","indexfile","data.txt");
+    //table.Build_Table("data.txt");
 
     string s;
     string command = "go";
@@ -74,7 +74,7 @@ int main() {
         }
         if (command == "search") {
             // The variable op1 is the date
-            table.Search(op1);
+            table.search(op1);
             continue;
         }
         if (command == "quit") {}
