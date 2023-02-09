@@ -37,7 +37,7 @@ Filesys::Filesys(string disk, int numberOfBlocks, int blockSize):Sdisk(disk, num
     fatSize = (multiplier * getNumberOfBlocks()) / getBlockSize() + 1;
 	/*
 		Note: the number of wasted blocks on the FAT can vary with this estimation and can be changed 
-		to waste less blocks by changing the multiplier variable. Use the blocks_needed_for_fat.cpp 
+		to waste less blocks by changing the multiplier variable. Use the blocksNeededForFat.cpp 
 		program to test values for the multiplier
 	*/
 	
