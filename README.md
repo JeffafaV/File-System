@@ -12,5 +12,4 @@ This was written and compiled in a UNIX environment. To run the program type "ma
 7. type "search " followed by a date in the data.txt file to find a certain data entry in the database (note this is limited to the table)
 
 The table creates two new text files that are used for fetching data in the database. The search feature allows the user to 
-input a date in order to find the whole entry. There is a current bug in the table where if it is read a second time the search 
-function will not fetch all data entries.
+input a date in order to find the whole entry.
