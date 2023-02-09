@@ -162,6 +162,7 @@ int Table::search(string value)
 	// check to see nothing is wrong with indexFile
 	// 0 or -1 means either the file is empty or doesn't exist
 	// this shouldn't be possible unless the user changed the file's name
+	// or deleted the file
 	if (blockID <= 0)
 	{
 		cout << "Warning, file is corrupted. ";
@@ -199,6 +200,7 @@ int Table::indexSearch(string value)
 	// check to see nothing is wrong with indexFile
 	// 0 or -1 means either the file is empty or doesn't exist
 	// this shouldn't be possible unless the user changed the file's name
+	// or deleted the file
 	if (blockID <= 0)
 	{
 		cout << "Warning, file is corrupted. ";
