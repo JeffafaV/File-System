@@ -134,7 +134,7 @@ int Table::search(string value)
 	// asks the user to enter date/key in case they didn't at first
     if(value == "")
 	{
-        cout << "What date would you like to search for: ";
+        cout << "What date would you like to search for: " << endl;
         
 		cin >> value;
     }
@@ -165,8 +165,8 @@ int Table::search(string value)
 	// or deleted the file
 	if (blockID <= 0)
 	{
-		cout << "Warning, file is corrupted. ";
-		cout << "Perhaps you changed the name of the file. Rename it to flatfile and try again" << endl;
+		cout << "Warning, flatfile is corrupted. " << endl;
+		cout << "Perhaps it was deleted or file name was changed" << endl;
 		
 		return 0;
 	}
@@ -203,8 +203,8 @@ int Table::indexSearch(string value)
 	// or deleted the file
 	if (blockID <= 0)
 	{
-		cout << "Warning, file is corrupted. ";
-		cout << "Perhaps you changed the name of the file. Rename it to indexfile and try again" << endl;
+		cout << "Warning, indexfile is corrupted. " << endl;
+		cout << "Perhaps it was deleted or file name was changed" << endl;
 		
 		return 0;
 	}

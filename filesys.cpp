@@ -50,7 +50,7 @@ Filesys::Filesys(string disk, int numberOfBlocks, int blockSize):Sdisk(disk, num
 	int errorCode = getBlock(0,bufferError);
 	if (errorCode == 0)
 	{
-		cout << "Disk doesn't exist";
+		cout << "Disk doesn't exist" << endl;
 		return;
 	}
 	
@@ -223,7 +223,7 @@ int Filesys::newFile(string file)
 	{
         if (filename[i] == file)
 		{
-			cout << "file already exists";
+			cout << "file already exists" << endl;
             return 0;
         }
     }
@@ -242,7 +242,7 @@ int Filesys::newFile(string file)
         }
     }
 	
-	cout << "no room left in the root for a new file";
+	cout << "no room left in the root for a new file" << endl;
     
     return 0;
 }
@@ -274,7 +274,7 @@ int Filesys::rmFile(string file)
         }
     }
 	
-	cout << "file doesn't exist";
+	cout << "file doesn't exist" << endl;
 	
     return 0;
 }
@@ -292,7 +292,7 @@ int Filesys::getFirstBlock(string file)
             return firstBlock[i];
         }
     }
-	cout << "no such file exists";
+	cout << "no such file exists" << endl;
 	
     return -1;
 }
@@ -424,7 +424,7 @@ int Filesys::readBlock(string file, int blockNumber, string& buffer)
         return 1; // success
     }
 	
-	cout << "block doesn't belong to the file";
+	cout << "block doesn't belong to the file" << endl;
     return 0;
 }
 
@@ -439,7 +439,7 @@ int Filesys::writeBlock(string file, int blockNumber, string buffer)
         return 1; // success
     }
 	
-	cout << "block doesn't belong to the file";
+	cout << "block doesn't belong to the file" << endl;
     return 0;
 }
 
@@ -453,7 +453,7 @@ int Filesys::nextBlock(string file, int blockNumber)
         return fat[blockNumber]; // success
     }
 	
-	cout << "block doesn't belong to the file";
+	cout << "block doesn't belong to the file" << endl;
     return -1;
 }
 
@@ -466,7 +466,7 @@ bool Filesys::checkBlock(string file, int blockNumber)
 	// file doesn't exist
 	if (iBlock == -1)
 	{
-		cout << "file doesn't exist";
+		cout << "file doesn't exist" << endl;
 		return false;
 	}
 	
@@ -483,7 +483,7 @@ bool Filesys::checkBlock(string file, int blockNumber)
     }
 	
 	// block does not belong to the file
-	cout << "block doesn't belong to the file";
+	cout << "block doesn't belong to the file" << endl;
     return false;
 }
 

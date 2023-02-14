@@ -50,7 +50,7 @@ int Shell::add(string file)
 	
 	// holds the data in the file entered by user
     string text;
-    cout << "Enter text: ";
+    cout << "Enter text: " << endl;
     getline(cin, text);
 	
 	// separate the data into blockSize sized chunks
