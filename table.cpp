@@ -70,7 +70,14 @@ int Table::buildTable(string inputFile)
 		// inserts the blocked record to a block in the flatfile
 		// blockID holds the block number that holds the record
         int blockID = addBlock(flatfile, blocks[0]);
-		/*should probably check if blockID is a valid block number and not an error code*/
+		
+		// no free blocks left
+		if (blockID == 0)
+		{
+			cout << "No space left in disk to create flatfile" << endl;
+			
+			return 0;
+		}
 		
 		// inserts the key/date and block number of a record for each record
         outstream << primaryKey << " " << blockID << " ";
@@ -85,8 +92,15 @@ int Table::buildTable(string inputFile)
 	// writes the dates/keys and block numbers of each record to the indexfile
 	for (int i = 0; i < blocks2.size(); i++)
 	{
-		addBlock(indexfile, blocks2[i]);
-		/*should probably check if addBlock is a valid block number and not an error code*/
+		int blockID2 = addBlock(indexfile, blocks2[i]);
+		
+		// no free blocks left
+		if (blockID2 == 0)
+		{
+			cout << "No space left in disk to create indexfile" << endl;
+			
+			return 0;
+		}
 	}
 	
 	cout << "Creating files" << endl;
@@ -154,8 +168,6 @@ int Table::search(string value)
 		return 0;
 	}
 	
-	/*I think I need to do this in the case that
-	the user changes the name of the flatfile*/
 	// get the first block of the flatfile
 	int blockID = getFirstBlock(flatfile);
 	
