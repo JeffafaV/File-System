@@ -11,5 +11,5 @@ This was written and compiled in a UNIX environment. To run the program type "ma
 6. type "quit" to terminate the program
 7. type "search " followed by a date in the data.txt file to find a certain data entry in the database (note this is limited to the table)
 
-The table creates two new text files that are used for fetching data in the database. The search feature allows the user to 
+The table creates two new files in the sdisk that are used for fetching data in the database. The search feature allows the user to 
 input a date in order to find the whole entry.
