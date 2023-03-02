@@ -279,6 +279,28 @@ int Filesys::rmFile(string file)
     return 0;
 }
 
+int Filesys:editName(string file, string newName)
+{
+	// loop through the file names in the root directory
+	for (int i = 0; i < filename.size(); i++)
+	{
+		// finding the file we want to rename
+		if (filename[i] == file)
+		{
+			cout << "Changing file name of " << filename[i] << " to " << newName << endl;
+			// changing file name
+			filename[i] == newName;
+			
+			return 1;
+		}
+	}
+	
+	// file entered does not exist in sdisk
+	cout << "File does not exist" << endl;
+	
+	return 0;
+}
+
 // returns the first block of a file
 // if the first block is 0 that just means the file is empty
 // if file is not found then return -1

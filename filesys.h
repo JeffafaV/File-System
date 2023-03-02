@@ -17,10 +17,10 @@ class Filesys: public Sdisk
 public:
     Filesys(string disk, int numberOfBlocks, int blockSize); // creates or reads the root and FAT
     int fsClose(); /*never used might delete*/
-	/*I would like to create a function that edits file names*/
 	/*add a way to add folders to the filesys*/
     int newFile(string file); // adds a new file to the root directory
     int rmFile(string file); // deletes a file from the root directory
+	int editName(string file, string newName); // edits the name of a file in the root directory
     int getFirstBlock(string file); // returns the first block of a file
     int addBlock(string file, string buffer); // adds a block to a file
     int delBlock(string file, int blockNumber); // deletes a block from a file
