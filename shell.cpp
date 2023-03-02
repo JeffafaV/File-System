@@ -114,6 +114,32 @@ int Shell::del(string file)
     return 1;
 }
 
+// edits the name of a file in the root directory
+int Shell:: edit(string file1, string newName)
+{
+	// empty file name
+	if (file1.empty() || newName.empty())
+	{
+		cout << "No file name(s) was/were given" << endl;
+		
+		return 0;
+	}
+	
+	// get error code to see if name change was successful
+	int code = editName(file1, newName);
+	
+	if (code == 1)
+	{
+		cout << "Name successfully changed" << endl;
+		
+		return 1;
+	}
+	
+	cout << "Couldn't change file name" << endl;
+	
+	return 0;
+}
+
 // displays the data of the file
 int Shell::type(string file)
 {

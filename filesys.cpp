@@ -279,6 +279,9 @@ int Filesys::rmFile(string file)
     return 0;
 }
 
+// edits the name of a file in the root directory of the sdisk
+// returns 0 if file doesn't exist
+// return 1 if name is successfully changed
 int Filesys:editName(string file, string newName)
 {
 	// loop through the file names in the root directory
@@ -296,7 +299,7 @@ int Filesys:editName(string file, string newName)
 	}
 	
 	// file entered does not exist in sdisk
-	cout << "File does not exist" << endl;
+	cout << "File " << file << " does not exist" << endl;
 	
 	return 0;
 }
