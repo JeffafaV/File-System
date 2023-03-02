@@ -15,7 +15,7 @@ Sdisk disk1("disk1.txt",256,128);
  for (int i=1; i<=1024; i++) {
      bfile1+="1";
  }
- vector<string> blocks = disk1.block(bfile1, 128);
+ vector<string> blocks = fsys.block(bfile1, 128);
  int blocknumber = 0;
  for (int i=0; i < blocks.size(); i++) {
      blocknumber = fsys.addBlock("file1.txt", blocks[i]);
@@ -25,7 +25,7 @@ Sdisk disk1("disk1.txt",256,128);
     {
       bfile2+="2";
     }
- blocks = disk1.block(bfile2,128);
+ blocks = fsys.block(bfile2, 128);
  for (int i=0; i< blocks.size(); i++)
     {
       blocknumber = fsys.addBlock("file2.txt",blocks[i]);

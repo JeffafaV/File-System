@@ -7,5 +7,5 @@ sdisk.o: sdisk.cpp
 	c++ -c sdisk.cpp
 
 clean:
-	rm *.o main
+	rm *.o main test1
 
