@@ -284,6 +284,18 @@ int Filesys::rmFile(string file)
 // return 1 if name is successfully changed
 int Filesys::editName(string file, string newName)
 {
+	// loop through the directory to see if newName already exists
+	for (int i = 0; i < filename.size(); i++)
+	{
+		// checking file name
+		if (filename[i] == newName)
+		{
+			cout << "The file name " << newName << " already exists" << endl;
+			
+			return 0;
+		}
+	}
+	
 	// loop through the file names in the root directory
 	for (int i = 0; i < filename.size(); i++)
 	{
