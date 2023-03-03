@@ -54,6 +54,11 @@ int main()
             // The variable op1 is the file
             shell->del(op1);
         }
+		if (command == "edit")
+		{
+			// The variable op1 is the file name and the variable op2 is the new file name
+			shell->edit(op1, op2);
+		}
         if (command == "type")
         {
             // The variable op1 is the file
