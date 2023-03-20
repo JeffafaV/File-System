@@ -7,9 +7,9 @@ using namespace std;
     I was making a big deal of this but it turns out that regardless of the number
     of wasted blocks used for the FAT, there will still be a huge number of 
     remaining blocks left so it doesn't really matter. Plus this is only a concern 
-	when dealing with a huge number of blocks. For our default number of blocks 
-	(256) we only waste one extra block on the FAT. Just make sure that the FAT can 
-	fit within all the blocks given for it.
+    when dealing with a huge number of blocks. For our default number of blocks 
+    (256) we only waste one extra block on the FAT. Just make sure that the FAT can 
+    fit within all the blocks given for it.
 */
 
 // recursive version
@@ -59,8 +59,9 @@ int main()
     int sizeOfBlocks = 128;
 	
 	string s = to_string(numOfBlocks);
+	// max number of chars needed to hold block number and a space character
 	int charsPerBlock = s.length()+1;
-	double multiplier = charsPerBlock; // can change
+	double multiplier = charsPerBlock; // can change to test number of wasted blocks
     
     // near exact total number of chars in FAT (including space)
     int c = findChars(numOfBlocks) + numOfBlocks;
