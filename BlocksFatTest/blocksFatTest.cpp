@@ -8,7 +8,7 @@ using namespace std;
     of wasted blocks used for the FAT, there will still be a huge number of 
     remaining blocks left so it doesn't really matter. Plus this is only a concern 
 	when dealing with a huge number of blocks. For our default number of blocks 
-	(256) we only waste one block on the FAT. Just make sure that the FAT can 
+	(256) we only waste one extra block on the FAT. Just make sure that the FAT can 
 	fit within all the blocks given for it.
 */
 
@@ -71,7 +71,7 @@ int main()
     cout << "Blocks needed for near exact: " << c/sizeOfBlocks+1 << endl;
     
     // approximate
-    cout << "Our formula approximation result: " << int((multiplier*numOfBlocks)/sizeOfBlocks+1);
+    cout << "Our formula approximation result: " << int((multiplier*numOfBlocks)/sizeOfBlocks+1) << endl;
     
     return 0;
 }
